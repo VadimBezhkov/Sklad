@@ -16,16 +16,23 @@ namespace Sklad
 
             Product bananas = new Product(1, "banan", 200m, 60);
 
-            SportSwear undershirt = new SportSwear(15,"filds", 5555, 15, "men");
+            Product orange = new Product { ID = 15,Name="orange",Count=45};
+            orange.Price = 55;
+
+            SportSwear sportsSuit = new SportSwear(14, "sports suit",15002m,55,"children");
+
+            SportSwear underShirt = new SportSwear(15,"filds", 5555m, 15, "men");
 
             skladProducts.AddNewProduct(apple);
             skladProducts.AddNewProduct(bananas);
-            skladProducts.AddNewProduct(undershirt);
+            skladProducts.AddNewProduct(underShirt);
+            skladProducts.AddNewProduct(sportsSuit);
+            skladProducts.AddNewProduct(orange);
 
             Console.ForegroundColor = ConsoleColor.Red;
             decimal summ = skladProducts.GetSummAllProduct();
-            Console.WriteLine($"Total amount of goods in stock: {summ}");
 
+            Console.WriteLine($"Total amount of goods in stock: {summ}");
             Console.ResetColor();
 
             skladProducts.PrintAllStock();
