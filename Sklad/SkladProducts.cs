@@ -9,9 +9,10 @@ namespace Sklad
     sealed public class SkladProducts
     {
         Product[] products = new Product[5000];
+        public string name { get; set; }
+
 
         private int productCount = 0;
-
         public void AddNewProduct(Product product)
         {
             product.Sklad = this;
@@ -28,7 +29,7 @@ namespace Sklad
 
         public void PrintItem(Product product)
         {
-            Console.WriteLine(product.ToString());
+           product.PrintInfo();
         }
         public decimal GetSummAllProduct()
         {
@@ -38,7 +39,7 @@ namespace Sklad
                 foreach (var item in products)
                 {
                     if(item!=null)
-                    summ += item.Price;
+                    summ += item.Price*item.Count;
                    
                 }
                 return summ;
@@ -49,6 +50,9 @@ namespace Sklad
             }
 
         }
-
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
