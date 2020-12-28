@@ -8,14 +8,26 @@ namespace Sklad
 {
     sealed public class SkladProducts
     {
-        Product[] products = new Product[5000];
+        public int WarehouseSize { get; set; }
+
+        Product[] products;
         public string name { get; set; }
 
-
-        private int productCount = 0;
+        private int productCount;
+        public SkladProducts()
+        {
+            productCount = 0;
+            WarehouseSize = 5000;
+            products = new Product[WarehouseSize];
+        }
         public void AddNewProduct(Product product)
         {
             product.Sklad = this;
+            if (productCount>= WarehouseSize)
+            {
+                Console.WriteLine($"Out of stock. Product {product.Name} does not fit.");
+                return;
+            }
             products[productCount++] = product;
         }
 
