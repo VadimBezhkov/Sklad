@@ -14,12 +14,14 @@ namespace Sklad
         public string name { get; set; }
 
         private int productCount;
+
         public SkladProducts()
         {
             productCount = 0;
             WarehouseSize = 5000;
             products = new Product[WarehouseSize];
         }
+
         public void AddNewProduct(Product product)
         {
             product.Sklad = this;
@@ -43,16 +45,17 @@ namespace Sklad
         {
            product.PrintInfo();
         }
+
         public decimal GetSummAllProduct()
         {
             decimal summ = 0;
+
         if (products!=null && productCount>0)
             {
                 foreach (var item in products)
                 {
                     if(item!=null)
                     summ += item.Price*item.Count;
-                   
                 }
                 return summ;
             }
@@ -60,8 +63,8 @@ namespace Sklad
             {
                 return  0;
             }
-
         }
+
         public override string ToString()
         {
             return name;

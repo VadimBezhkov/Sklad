@@ -83,46 +83,57 @@ namespace Sklad
         {
 
         }
+
         public Product(string name)
         {
             Name = name;
         }
+
         public Product(string name, decimal price) :this (name)
         {
             Price = price;
         }
+
         public Product(int iD)
         {
             ID = iD;
         }
+
         public Product(int iD, string name):this (iD)
         {
             Name = name;
         }
+
         public Product(int iD, string name, decimal price):this (iD, name)
         {
             Price = price;
         }
+
         public Product(decimal price)
         {
             Price = price;
         }
+
         public Product(int iD, string name, decimal price, int count):this (iD,name,price)
         {
             Count = count;
         }
+
         public Product(int iD, decimal price, int count):this ( iD, price)
         {
             Count = count;
         }
+
         public Product(string name, decimal price, int count):this (name,price)
         {
             Count = count;
         }
+
         public Product(int iD, decimal price):this (iD)
         {
             Price = price;
         }
+
         public Product(int iD, int count) : this(iD)
         {
             Count = count;

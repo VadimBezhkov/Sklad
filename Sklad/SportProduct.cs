@@ -26,16 +26,29 @@ namespace Sklad
         {
 
         }
+
+        public SportSwear(int iD, string name) :base (iD,name)
+        {
+
+        }
+
+        public SportSwear(int iD, string name,int count) : base(iD, name,count)
+        {
+
+        }
+
         public SportSwear(int iD, string name, decimal prise, int count,byte size,string sex) :base( iD, name, prise, count)
         {
             _size = size;
             _sex = sex;
         }
+
         public SportSwear(int iD, string name, decimal prise, byte size, string sex) : base(iD, name, prise)
         {
             _size = size;
             _sex = sex;
         }
+
         public SportSwear(int iD, string name,  int count, byte size, string sex) : base(iD, name,count)
         {
             _size = size;
@@ -55,12 +68,12 @@ namespace Sklad
         public override string ToString()
         {
             return $"{Sklad}:  THIS IS SportProduct \nProduct ID: {ID},  Product Name: {Name}," +
-                $" Product Price: {Price}, Products Count: {Count}, Size{_size} SEX: {_sex}";
+                $" Product Price: {Price}, Products Count: {Count}, Size: {_size} SEX: {_sex}";
         }
 
-        //public override void PrintInfo()
-        //{
-        //    Console.WriteLine(ToString());
-        //}
+        public override void PrintInfo()
+        {
+            Console.WriteLine(ToString());
+        }
     }
 }
